@@ -9,6 +9,7 @@ Data:   2019/03/25
 
 import pickle
 import numpy as np
+from pprint import pprint
 
 
 def load_cifar_data(filepath):
@@ -25,7 +26,7 @@ def load_birth_life_data(filepath):
     data = [line[:-1].split('\t') for line in text]
     births = [float(line[1]) for line in data]
     lifes = [float(line[2]) for line in data]
-    return np.asarray(list(zip(births, lifes)), dtype=np.float32)
+    return np.array(list(zip(births, lifes)))
 
 
 def batch_iter(data, batch_size, num_epochs, shuffle=True):
@@ -54,18 +55,18 @@ if __name__ == '__main__':
     # print(labels[:2])
 
     # 测试 load_birth_life_data
-    # birth_life_dir = "../data/birth_life_2010.txt"
-    # data = load_birth_life_data(birth_life_dir)
-    # print(data.shape)
-    # print(data[:5])
+    birth_life_dir = "../data/birth_life_2010.txt"
+    data = load_birth_life_data(birth_life_dir)
+    print(data.shape)
+    pprint(data)
 
     # 测试 batch_iter
-    X = np.ones((50, 3))
-    y = np.arange(50)
-    data = np.array(list(zip(X, y)))
-    batches = batch_iter(data, batch_size=20, num_epochs=1)
-    for batch in batches:
-        X_batch, y_batch = zip(*batch)
-        print(X_batch)
-        print(y_batch)
+    # X = np.ones((50, 3))
+    # y = np.arange(50)
+    # data = np.array(list(zip(X, y)))
+    # batches = batch_iter(data, batch_size=20, num_epochs=1)
+    # for batch in batches:
+    #     X_batch, y_batch = zip(*batch)
+    #     print(X_batch)
+    #     print(y_batch)
 

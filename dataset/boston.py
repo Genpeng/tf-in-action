@@ -37,9 +37,9 @@ class BostonPriceData:
                 self._indicator = 0
                 end_indicator = batch_size
             else:
-                raise Exception("There have no more data!!!")
+                raise Exception("[INFO] There have no more data!!!")
         if end_indicator > self._num_examples:
-            raise Exception("The size of one batch is larger than the number of examples!!!")
+            raise Exception("[INFO] The size of one batch is larger than the number of examples!!!")
         batch_data = self._data[self._indicator:end_indicator]
         batch_targets = self._targets[self._indicator:end_indicator]
         self._indicator = end_indicator
