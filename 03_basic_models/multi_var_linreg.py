@@ -3,6 +3,8 @@
 """
 A Linear regression example using TensorFlow.
 
+TODO: The model can not normally train.
+
 Author: Genpeng Xu
 Date:   2019/03/27
 """
